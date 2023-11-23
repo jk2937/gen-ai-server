@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Image Generator</title>
+<script>
+    let generating = false;
+    let images = [];
+
+    function startGeneration() {
+        const prompt = document.getElementById('prompt').value;
+        const resolution = document.getElementById('resolution').value;
+        const num_images = document.getElementById('num_images').value;
+
+        fetch('/start', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                prompt: prompt,
+                resolution: resolution,
+                num_images: num_images
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            generating = true;
+            updateStatus();
+        });
+    }
+
+    function stopGeneration() {
+        // TODO: Implement stop generation on server
+        generating = false;
+    }
+
+    function deleteAllImages() {
+        // TODO: Implement delete all images on server
+        images = [];
+        displayImages();
+    }
+
+    function updateStatus() {
+        fetch('/status')
+            .then(response => response.json())
+            .then(data => {
+                generating = data.generating;
+                images = data.images;
+                document.getElementById('status').innerText = data.generated_count + '/' + data.total_to_generate + ' images generated';
+                displayImages();
+
+                if (generating) {
+                    setTimeout(updateStatus, 2000);
+                }
+            });
+    }
+
+    function displayImages() {
+	    const imagesContainer = document.getElementById('images');
+	    imagesContainer.innerHTML = '';  // Clear the current images
+	    for (let i = images.length - 1; i >= 0; i--) {  // Loop through images array in reverse order
+	        const image = images[i];
+	        const imgElement = document.createElement('img');
+	        imgElement.src = image;
+	        imgElement.onmousedown = () => {
+	            const confirmDelete = confirm('Would you like to delete this image?');
+	            if (confirmDelete) {
+	                // TODO: Implement delete specific image on server
+	                images.splice(i, 1);
+	                displayImages();
+	            }
+	        };
+	        imagesContainer.appendChild(imgElement);  // Append each image element to the imagesContainer
+	}
+}
+</script>
+</head>
+<body onload="updateStatus()">
+
+<div>
+    <label for="prompt">Prompt:</label>
+    <input type="text" id="prompt">
+</div>
+
+<div>
+    <label for="resolution">Resolution:</label>
+    <select id="resolution">
+        <option value="1">Low</option>
+        <option value="2">Medium</option>
+        <option value="3">High</option>
+    </select>
+</div>
+
+<div>
+    <label for="num_images">Number of Images:</label>
+    <input type="number" id="num_images" min="1" value="1">
+</div>
+
+<button onclick="startGeneration()">Generate</button>
+<button onclick="stopGeneration()">Stop</button>
+<button onclick="deleteAllImages()">Delete All Images</button>
+
+<p id="status">Status: Not generating</p>
+
+<div id="images"></div>
+
+</body>
+</html>

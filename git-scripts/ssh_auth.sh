@@ -22,8 +22,8 @@ clear
 read -p "Please paste the key into github (Profile Image -> Settings -> SSH and GPG keys -> New SSH key) (Press enter to continue)"
 
 # Configure Git to use the SSH key
-# git config --global user.email "kaschakjonathan+github@gmail.com"
-# git config --global user.name "jk2937"
+git config --global user.email "kaschakjonathan+github@gmail.com"
+git config --global user.name "jk2937"
 
 ssh -vT git@github.com
 
