@@ -1,0 +1,10 @@
+Feature - Machine can be air gapped while program is in use
+Bug - The Generate button can be clicked twice and each click spawns a seperate thread
+Bug - Only Medium resolution works
+Bug - Max images generated displays the max images for the last spawned thread but the other number displays the total max of all threads
+Bug - Stop button does nothing
+Bug - Delete All Images does nothing
+Design note - Currently all images are displayed in a single page and in a disorganized fashion. Future versions could use sessions ids to filter images
+Design note - The page could use some basic styling
+Testing - Tested on Windows 11 (MSI GT76 Titan DT)
+
