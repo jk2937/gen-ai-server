@@ -36,3 +36,26 @@ Tested on Windows 11 (MSI GT76 Titan DT)
 Todo - Make coding style consistent
 Todo - Make software liscence clearly visible and accesible
 Todo - Add database support for images
+
+
+
+2023-11-26
+
+
+Target 
+
+v0.0.1dev - Images stored in database
+v0.0.2dev - Images stored with date
+v0.0.3dev - Images stored with session id
+v0.0.4dev - Generation tasks stored in database
+v0.0.5dev - Severe bug related to generate button fixed
+v0.0.6dev - Stop button fixed
+v0.0.7dev - Resolution settings fixed
+v0.0.8dev - Image generation feedback fixed
+v0.0.9dev - Delete all images
+v0.0.10dev - Styling
+v0.0.11dev - Images auto-delete
+
+v0.1dev - Final testing complete
+
+The next step after this will be to store data about generation tasks in a database, then fix severe bugs. Once all bugs are fixes and a css template is created, this will be v0.1dev.
