@@ -59,3 +59,12 @@ v0.0.11dev - Images auto-delete
 v0.1dev - Final testing complete
 
 The next step after this will be to store data about generation tasks in a database, then fix severe bugs. Once all bugs are fixes and a css template is created, this will be v0.1dev.
+
+
+
+2023-11-27
+
+
+Testing on a 2009 Macbook Pro with a GeForce 9400M and the nvidia legacy driver (https://gist.github.com/oprizal/998635a2ff5cbecb0519455c12b2994f) results in the following error: 
+
+/home/user1/Documents/git/hello-world/gen-ai-server/env/lib/python3.11/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 6050). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
