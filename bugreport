@@ -106,6 +106,11 @@ SELECT created_timestamp FROM images
 DELETE FROM images WHERE created_timestamp = '';
 
 
+Delete all user images
+
+DELETE FROM images WHERE session_id = '';
+
+
 
 Table - jobs
 
@@ -125,17 +130,17 @@ CREATE TABLE IF NOT EXISTS jobs ( session_id TEXT, prompt TEXT, start_timestamp 
 
 Create job
 
-INSERT INTO jobs ( session_id, prompt, start_timestamp, current_progress, gen_count, gen_max ) VALUES ( ?, ?, ?, ?, ?, ? );
+INSERT INTO jobs ( session_id, prompt, start_timestamp, status_message, current_count_index, count_max) VALUES ( ?, ?, ?, ?, ?, ? );
 
 
-Update job current_progress
+update job status_message
 
-UPDATE jobs SET current_progress = '' WHERE session_id = '';
+UPDATE jobs SET status_message = '' WHERE session_id = '';
 
 
-Update job gen_count
+Update job current_count_index
 
-UPDATE jobs SET gen_count = '' WHERE session_id ='';
+UPDATE jobs SET current_count_index = '' WHERE session_id ='';
 
 
 Delete job
@@ -159,10 +164,17 @@ Get nickname
 
 SELECT * FROM nicknames WHERE session_id = '';
 
-
 Set nickname
 
+INSERT INTO nicknames ( session_id, nickname ) VALUES ( ?, ? )
+
+Update nickname
+
 UPDATE nicknames SET nickname = '' WHERE session_id = '';
+
+Delete nickname
+
+DELETE FROM nicknames WHERE session_id = '';
 
 
 2023-12-8
