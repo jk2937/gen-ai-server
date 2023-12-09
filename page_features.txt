@@ -1,0 +1,44 @@
+Page - intro.html
+
+Theme - webpage
+
+Header - floating title
+
+Pitch, launch button, information
+
+Footer - basic
+
+
+Page - get_nickname.html
+
+Theme - popup window
+
+Header - none, dialog x button
+
+Welcome, nickname input, license check input, go button
+
+
+Page - license.html
+
+Theme - popup window
+
+License reader, back button
+
+
+Page - user_dashboard.html
+
+Theme - webpage
+
+Header - title, back, settings
+
+Welcome, brief instructions, prompt input, resolution input, image count input, start/stop button, status message, progress bar, content feed, content timeout indicator
+
+
+Todo - Page - explore.html
+
+Pitch about social features, see who is generating, explore community created content
+
+
+Page - settings.html
+
+debug info, change nickname, visit homepage, delete all user generated content, give feedback, learn more
